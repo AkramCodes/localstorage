@@ -1,9 +1,10 @@
 let taskManager  =document.querySelector("#taskManager")
 let input  =document.querySelector("#input")
+// Empty Ul-------------------------------------------
 let taskList = document.querySelector("#taskList")
 
 
-let tasks = null
+let tasks;
 
 if(localStorage.getItem("tasks")!=""){
     let existing_tasks = localStorage.getItem("tasks") //string
@@ -18,13 +19,13 @@ taskManager.addEventListener("submit",function(e){
 
     tasks.push(input.value)
     displayTasks()
-    input.value = ''
+    input.value = '';
 
     localStorage.setItem("tasks",tasks)
 })
 
 function displayTasks(){
-    taskList.innerHTML = ''
+    taskList.innerHTML = '';
     tasks.forEach(function(value,index){
         taskList.innerHTML += `<li>${value}</li>`
     })
